@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.arpokemon.Adapter.PokemonTypeAdapter;
 import com.example.arpokemon.Common.Common;
 import com.example.arpokemon.Model.Pokemon;
 
@@ -84,6 +85,10 @@ public class PokemonDetail extends Fragment {
         pokemon_name.setText(pokemon.getName());
         pokemon_weight.setText("Weight: "+pokemon.getWeight());
         pokemon_height.setText("Height: "+pokemon.getHeight());
+
+        //Set Type
+        PokemonTypeAdapter adapter = new PokemonTypeAdapter(getActivity(),pokemon.getType());
+        recycler_type.setAdapter(adapter);
 
 
     }

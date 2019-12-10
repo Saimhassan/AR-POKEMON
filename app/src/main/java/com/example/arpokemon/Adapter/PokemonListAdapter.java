@@ -1,6 +1,7 @@
 package com.example.arpokemon.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.arpokemon.Common.Common;
 import com.example.arpokemon.Interface.IItemClickListener;
 import com.example.arpokemon.Model.Pokemon;
 import com.example.arpokemon.R;
@@ -46,7 +49,8 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Toast.makeText(context, "Click at Pokemon :"+pokemonList.get(position).getName(), Toast.LENGTH_LONG).show();
+                LocalBroadcastManager.getInstance(context)
+                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("position",position));
             }
         });
     }

@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Common {
     public static final String KEY_ENABLE_HOME = "enable_home";
+    public static final String KEY_NUM_EVOLUATION = "num_evolution";
     public static List<Pokemon> commonPokemonList = new ArrayList<>();
 
 

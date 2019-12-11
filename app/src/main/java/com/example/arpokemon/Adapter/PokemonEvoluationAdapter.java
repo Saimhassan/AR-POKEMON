@@ -1,12 +1,14 @@
 package com.example.arpokemon.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arpokemon.Common.Common;
@@ -51,12 +53,7 @@ public class PokemonEvoluationAdapter extends RecyclerView.Adapter<PokemonEvolua
                         .get(0)
                 )
         );
-        holder.setiItemClickListener(new IItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Toast.makeText(context, "Click to get Evolaution Pokemon", Toast.LENGTH_SHORT).show();
-            }
-        });
+
     }
 
     @Override
@@ -66,11 +63,6 @@ public class PokemonEvoluationAdapter extends RecyclerView.Adapter<PokemonEvolua
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         Chip chip;
-        IItemClickListener iItemClickListener;
-
-        public void setiItemClickListener(IItemClickListener iItemClickListener) {
-            this.iItemClickListener = iItemClickListener;
-        }
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,7 +70,8 @@ public class PokemonEvoluationAdapter extends RecyclerView.Adapter<PokemonEvolua
             chip.setOnChipClickListener(new OnChipClickListener() {
                 @Override
                 public void onChipClick(View v) {
-                    iItemClickListener.onClick(v,getAdapterPosition());
+                    LocalBroadcastManager.getInstance(context)
+                            .sendBroadcast(new Intent(Common.KEY_NUM_EVOLUATION).putExtra("num",evolutions.get(getAdapterPosition()).getNum()));
                 }
             });
         }

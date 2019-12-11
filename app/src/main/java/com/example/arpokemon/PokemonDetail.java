@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.arpokemon.Adapter.PokemonEvoluationAdapter;
 import com.example.arpokemon.Adapter.PokemonTypeAdapter;
 import com.example.arpokemon.Common.Common;
 import com.example.arpokemon.Model.Pokemon;
@@ -89,6 +90,17 @@ public class PokemonDetail extends Fragment {
         //Set Type
         PokemonTypeAdapter adapter = new PokemonTypeAdapter(getActivity(),pokemon.getType());
         recycler_type.setAdapter(adapter);
+
+        //Set Weakness
+        PokemonTypeAdapter weaknessadapter = new PokemonTypeAdapter(getActivity(),pokemon.getWeaknesses());
+        recycler_weakness.setAdapter(weaknessadapter);
+
+        //Set Evolaution
+        PokemonEvoluationAdapter preEvoluationAdapter = new PokemonEvoluationAdapter(getActivity(),pokemon.getPrev_evolution());
+        recycler_previous_evoluation.setAdapter(preEvoluationAdapter);
+
+        PokemonEvoluationAdapter nextEvoluationAdapter = new PokemonEvoluationAdapter(getActivity(),pokemon.getNext_evolution());
+        recycler_next_evoluation.setAdapter(nextEvoluationAdapter);
 
 
     }

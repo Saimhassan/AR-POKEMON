@@ -32,7 +32,7 @@
                 <TextView
                     android:id="@+id/name"
                     android:text="POKEMON"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="4dp"
                     android:textStyle="bold"
                     android:textSize="30sp"
                     android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                     android:id="@+id/height"
                     android:text="Height"
                     android:textStyle="italic"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="4dp"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -51,7 +51,7 @@
                     android:id="@+id/weight"
                     android:text="Weight"
                     android:textStyle="italic"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="4dp"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -59,7 +59,7 @@
                 <TextView
                     android:text="Type"
                     android:textStyle="italic"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="4dp"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -80,35 +80,35 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_weakness"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"/>
 
                 <TextView
                     android:text="Prev Evolution"
                     android:textStyle="italic"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="6dp"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_prev_evolution"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"/>
 
                 <TextView
                     android:text="Next Evolution"
                     android:textStyle="italic"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="4dp"
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_next_evolution"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="6dp"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"/>
 

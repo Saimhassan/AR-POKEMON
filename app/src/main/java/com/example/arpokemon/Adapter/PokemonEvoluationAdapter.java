@@ -4,51 +4,64 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.arpokemon.Common.Common;
 import com.example.arpokemon.Interface.IItemClickListener;
+import com.example.arpokemon.Model.Evolution;
 import com.example.arpokemon.R;
 import com.robertlevonyan.views.chip.Chip;
 import com.robertlevonyan.views.chip.OnChipClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonTypeAdapter extends RecyclerView.Adapter<PokemonTypeAdapter.MyViewHolder> {
+public class PokemonEvoluationAdapter extends RecyclerView.Adapter<PokemonEvoluationAdapter.MyViewHolder> {
 
     Context context;
-    List<String> typeList;
+    List<Evolution> evolutions;
 
 
-    public PokemonTypeAdapter(Context context, List<String> typeList) {
+    public PokemonEvoluationAdapter(Context context, List<Evolution> evolutions) {
         this.context = context;
-        this.typeList = typeList;
+        if (evolutions != null)
+            this.evolutions = evolutions;
+        else
+            this.evolutions = new ArrayList<>();
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PokemonEvoluationAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.chip_item,parent,false);
-        return new MyViewHolder(itemView);
+        return new PokemonEvoluationAdapter.MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.chip.setChipText(typeList.get(position));
-        holder.chip.changeBackgroundColor(Common.getColorByType(typeList.get(position)));
+    public void onBindViewHolder(@NonNull PokemonEvoluationAdapter.MyViewHolder holder, int position) {
+        holder.chip.setChipText(evolutions.get(position).getName());
+        holder.chip.changeBackgroundColor(
+                Common.getColorByType(
+                        Common.findPokemonByNum(
+                                evolutions.get(position).getNum()
+                        ).getType()
+                        .get(0)
+                )
+        );
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                Toast.makeText(context, "Click to get Evolaution Pokemon", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return typeList.size();
+        return evolutions.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -71,3 +84,4 @@ public class PokemonTypeAdapter extends RecyclerView.Adapter<PokemonTypeAdapter.
         }
     }
 }
+

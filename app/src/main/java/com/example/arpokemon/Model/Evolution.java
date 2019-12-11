@@ -1,13 +1,13 @@
 package com.example.arpokemon.Model;
 
-public class PrevEvolution {
-    public String num;
-    public String name;
+public class Evolution {
+    private String num;
+    private String name;
 
-    public PrevEvolution() {
+    public Evolution() {
     }
 
-    public PrevEvolution(String num, String name) {
+    public Evolution(String num, String name) {
         this.num = num;
         this.name = name;
     }
